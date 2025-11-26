@@ -76,6 +76,8 @@ public class AuthService {
             throw new RuntimeException("Wrong Credential");
         }
 
+        String role = existingUser.getRole().name();
+        System.out.println("Role is "+role);
         return new LogInResponseDTO(jwtService.generateToken(dto.getUsername(),existingUser.getRole().name()));
     }
 }
